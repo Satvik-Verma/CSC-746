@@ -1,0 +1,6 @@
+/Users/satvikverma/Workspace/CSC-746/cp1/build/CMakeFiles/benchmark.dir
+/Users/satvikverma/Workspace/CSC-746/cp1/build/CMakeFiles/sum_direct.dir
+/Users/satvikverma/Workspace/CSC-746/cp1/build/CMakeFiles/sum_vector.dir
+/Users/satvikverma/Workspace/CSC-746/cp1/build/CMakeFiles/sum_indirect.dir
+/Users/satvikverma/Workspace/CSC-746/cp1/build/CMakeFiles/edit_cache.dir
+/Users/satvikverma/Workspace/CSC-746/cp1/build/CMakeFiles/rebuild_cache.dir
