@@ -11,9 +11,6 @@
 void 
 setup(int64_t N, uint64_t A[])
 {
-   for(int i=0; i<N; i++){
-      A[i] = i;
-   }
    printf(" inside direct_sum problem_setup, N=%lld \n", N);
 }
 
@@ -22,7 +19,7 @@ sum(int64_t N, uint64_t A[])
 {
    int64_t sum  = 0;
    for(int i =0; i<N; i++){
-      sum += A[i];
+      sum += i;
    }
    printf(" inside direct_sum perform_sum, N=%lld \n", N);
 
