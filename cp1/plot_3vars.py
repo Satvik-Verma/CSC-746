@@ -20,7 +20,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-fname = "final_data_3vars.csv"
+fname = "/Users/satvikverma/Workspace/CSC-746/cp1/final_data_3vars.csv"
 df = pd.read_csv(fname, comment="#")
 print(df)
 
@@ -36,7 +36,7 @@ code1_time = df[var_names[1]].values.tolist()
 code2_time = df[var_names[2]].values.tolist()
 code3_time = df[var_names[3]].values.tolist()
 
-plt.title("Comparison of 3 Codes")
+plt.title("Comparison of the 3 approaches for runtime")
 
 xlocs = [i for i in range(len(problem_sizes))]
 
@@ -56,8 +56,8 @@ plt.plot(code3_time, "g-^")
 #plt.xscale("log")
 #plt.yscale("log")
 
-plt.xlabel("Problem Sizes")
-plt.ylabel("runtime")
+plt.xlabel("Problem Sizes (N)")
+plt.ylabel("Runtime (s)")
 
 varNames = [var_names[1], var_names[2], var_names[3]]
 plt.legend(varNames, loc="best")

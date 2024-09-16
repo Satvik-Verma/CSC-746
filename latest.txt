@@ -1,94 +1,101 @@
-satvik@perlmutter:login36:~/CSC-746/cp1/build> ./sum_direct
+satvik@nid004343:~/CSC-746/cp1/build> ./sum_direct
 Working on problem size N=8388608
  inside direct_sum problem_setup, N=8388608
  inside direct_sum perform_sum, N=8388608
- Elapsed time is : 0.001659
+ Elapsed time is : 0.001208
  Sum result = 35184367894528
 Working on problem size N=16777216
  inside direct_sum problem_setup, N=16777216
  inside direct_sum perform_sum, N=16777216
- Elapsed time is : 0.003332
+ Elapsed time is : 0.002395
  Sum result = 140737479966720
 Working on problem size N=33554432
  inside direct_sum problem_setup, N=33554432
  inside direct_sum perform_sum, N=33554432
- Elapsed time is : 0.006573
+ Elapsed time is : 0.004791
  Sum result = 562949936644096
 Working on problem size N=67108864
  inside direct_sum problem_setup, N=67108864
  inside direct_sum perform_sum, N=67108864
- Elapsed time is : 0.013097
+ Elapsed time is : 0.009581
  Sum result = 2251799780130816
 Working on problem size N=134217728
  inside direct_sum problem_setup, N=134217728
  inside direct_sum perform_sum, N=134217728
- Elapsed time is : 0.025546
+ Elapsed time is : 0.019157
  Sum result = 9007199187632128
 Working on problem size N=268435456
  inside direct_sum problem_setup, N=268435456
  inside direct_sum perform_sum, N=268435456
- Elapsed time is : 0.049834
+ Elapsed time is : 0.038292
  Sum result = 36028796884746240
-satvik@perlmutter:login36:~/CSC-746/cp1/build> ./sum_indirect
+satvik@nid004343:~/CSC-746/cp1/build> ./sum_indirect
 Working on problem size N=8388608
  inside sum_indirect problem_setup, N=8388608
  inside sum_indirect perform_sum, N=8388608
- Elapsed time is : 0.000012
- Sum result = 96674599
+ Elapsed time is : 0.028799
+ Sum result = 35176011419405
 Working on problem size N=16777216
  inside sum_indirect problem_setup, N=16777216
  inside sum_indirect perform_sum, N=16777216
- Elapsed time is : 0.000017
- Sum result = 96674599
+ Elapsed time is : 0.070938
+ Sum result = 140753945406246
 Working on problem size N=33554432
  inside sum_indirect problem_setup, N=33554432
  inside sum_indirect perform_sum, N=33554432
- Elapsed time is : 0.000012
- Sum result = 96674599
+ Elapsed time is : 0.157998
+ Sum result = 562848253462010
 Working on problem size N=67108864
  inside sum_indirect problem_setup, N=67108864
  inside sum_indirect perform_sum, N=67108864
- Elapsed time is : 0.000018
- Sum result = 874428830
+ Elapsed time is : 0.331777
+ Sum result = 2252110732323352
 Working on problem size N=134217728
  inside sum_indirect problem_setup, N=134217728
  inside sum_indirect perform_sum, N=134217728
- Elapsed time is : 0.000014
- Sum result = 874428830
+ Elapsed time is : 0.680256
+ Sum result = 9007578663389786
 Working on problem size N=268435456
  inside sum_indirect problem_setup, N=268435456
  inside sum_indirect perform_sum, N=268435456
- Elapsed time is : 0.000015
- Sum result = 565044461
-satvik@perlmutter:login36:~/CSC-746/cp1/build> ./sum_vector
+ Elapsed time is : 1.377845
+ Sum result = 36026762612165763
+satvik@nid004343:~/CSC-746/cp1/build> ./sum_vector
 Working on problem size N=8388608
  inside sum_vector problem_setup, N=8388608
  inside sum_vector perform_sum, N=8388608
- Elapsed time is : 0.004708
+ Elapsed time is : 0.002926
  Sum result = 35184367894528
 Working on problem size N=16777216
  inside sum_vector problem_setup, N=16777216
  inside sum_vector perform_sum, N=16777216
- Elapsed time is : 0.009278
+ Elapsed time is : 0.005870
  Sum result = 140737479966720
 Working on problem size N=33554432
  inside sum_vector problem_setup, N=33554432
  inside sum_vector perform_sum, N=33554432
- Elapsed time is : 0.018685
+ Elapsed time is : 0.011765
  Sum result = 562949936644096
 Working on problem size N=67108864
  inside sum_vector problem_setup, N=67108864
  inside sum_vector perform_sum, N=67108864
- Elapsed time is : 0.036531
+ Elapsed time is : 0.023379
  Sum result = 2251799780130816
 Working on problem size N=134217728
  inside sum_vector problem_setup, N=134217728
  inside sum_vector perform_sum, N=134217728
- Elapsed time is : 0.069635
+ Elapsed time is : 0.045610
  Sum result = 9007199187632128
 Working on problem size N=268435456
  inside sum_vector problem_setup, N=268435456
  inside sum_vector perform_sum, N=268435456
- Elapsed time is : 0.127437
+ Elapsed time is : 0.088074
  Sum result = 36028796884746240
-satvik@perlmutter:login36:~/CSC-746/cp1/build>
+
+Problem Size,direct,indirect,vector
+8388608,0.001208,0.028799,0.002926
+16777216,0.002395,0.070938,0.005870
+33554432,0.004791,0.157998,0.011765
+67108864,0.009581,0.331777,0.023379
+134217728,0.019157,0.680256,0.045610
+268435456,0.038292,1.377845,0.088074

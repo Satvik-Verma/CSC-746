@@ -21,7 +21,7 @@ import matplotlib.pyplot as plt
 
 plot_fname = "myplot.png"
 
-fname = "final_data_3vars.csv"
+fname = "/Users/satvikverma/Workspace/CSC-746/cp1/perc_mem_bw.csv"
 df = pd.read_csv(fname, comment="#")
 print(df)
 

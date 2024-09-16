@@ -26,10 +26,12 @@ int64_t
 sum(int64_t N, uint64_t A[])
 {
     int64_t sum = 0;
+    int64_t indx = 0;
 
     // Compute the sum accumulating A[indx] where indx = A[indx]
     for (int64_t i = 0; i < N; ++i) {
-        sum += A[A[i]];
+         indx = A[indx];
+         sum += A[indx];
     }
 
    printf(" inside sum_indirect perform_sum, N=%lld \n", N);

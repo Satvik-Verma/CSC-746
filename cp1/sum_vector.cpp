@@ -28,4 +28,3 @@ sum(int64_t N, uint64_t A[])
 
    return sum;
 }
-
