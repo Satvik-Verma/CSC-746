@@ -53,10 +53,10 @@ RM = /opt/homebrew/Cellar/cmake/3.30.3/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional
+CMAKE_SOURCE_DIR = /Users/satvikverma/Workspace/CSC-746/cp2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build
+CMAKE_BINARY_DIR = /Users/satvikverma/Workspace/CSC-746/cp2/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/bench-blocked.dir/depend.make
@@ -70,18 +70,18 @@ include CMakeFiles/bench-blocked.dir/progress.make
 include CMakeFiles/bench-blocked.dir/flags.make
 
 CMakeFiles/bench-blocked.dir/benchmark.cpp.o: CMakeFiles/bench-blocked.dir/flags.make
-CMakeFiles/bench-blocked.dir/benchmark.cpp.o: /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/benchmark.cpp
+CMakeFiles/bench-blocked.dir/benchmark.cpp.o: /Users/satvikverma/Workspace/CSC-746/cp2/benchmark.cpp
 CMakeFiles/bench-blocked.dir/benchmark.cpp.o: CMakeFiles/bench-blocked.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/bench-blocked.dir/benchmark.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bench-blocked.dir/benchmark.cpp.o -MF CMakeFiles/bench-blocked.dir/benchmark.cpp.o.d -o CMakeFiles/bench-blocked.dir/benchmark.cpp.o -c /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/benchmark.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/satvikverma/Workspace/CSC-746/cp2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/bench-blocked.dir/benchmark.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bench-blocked.dir/benchmark.cpp.o -MF CMakeFiles/bench-blocked.dir/benchmark.cpp.o.d -o CMakeFiles/bench-blocked.dir/benchmark.cpp.o -c /Users/satvikverma/Workspace/CSC-746/cp2/benchmark.cpp
 
 CMakeFiles/bench-blocked.dir/benchmark.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/bench-blocked.dir/benchmark.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/benchmark.cpp > CMakeFiles/bench-blocked.dir/benchmark.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/satvikverma/Workspace/CSC-746/cp2/benchmark.cpp > CMakeFiles/bench-blocked.dir/benchmark.cpp.i
 
 CMakeFiles/bench-blocked.dir/benchmark.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/bench-blocked.dir/benchmark.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/benchmark.cpp -o CMakeFiles/bench-blocked.dir/benchmark.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/satvikverma/Workspace/CSC-746/cp2/benchmark.cpp -o CMakeFiles/bench-blocked.dir/benchmark.cpp.s
 
 bench-blocked: CMakeFiles/bench-blocked.dir/benchmark.cpp.o
 bench-blocked: CMakeFiles/bench-blocked.dir/build.make
@@ -96,6 +96,6 @@ CMakeFiles/bench-blocked.dir/clean:
 .PHONY : CMakeFiles/bench-blocked.dir/clean
 
 CMakeFiles/bench-blocked.dir/depend:
-	cd /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build/CMakeFiles/bench-blocked.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/satvikverma/Workspace/CSC-746/cp2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/satvikverma/Workspace/CSC-746/cp2 /Users/satvikverma/Workspace/CSC-746/cp2 /Users/satvikverma/Workspace/CSC-746/cp2/build /Users/satvikverma/Workspace/CSC-746/cp2/build /Users/satvikverma/Workspace/CSC-746/cp2/build/CMakeFiles/bench-blocked.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/bench-blocked.dir/depend
 

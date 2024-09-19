@@ -53,10 +53,10 @@ RM = /opt/homebrew/Cellar/cmake/3.30.3/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional
+CMAKE_SOURCE_DIR = /Users/satvikverma/Workspace/CSC-746/cp2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build
+CMAKE_BINARY_DIR = /Users/satvikverma/Workspace/CSC-746/cp2/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/benchmark-basic.dir/depend.make
@@ -70,18 +70,18 @@ include CMakeFiles/benchmark-basic.dir/progress.make
 include CMakeFiles/benchmark-basic.dir/flags.make
 
 CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.o: CMakeFiles/benchmark-basic.dir/flags.make
-CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.o: /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/dgemm-basic.cpp
+CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.o: /Users/satvikverma/Workspace/CSC-746/cp2/dgemm-basic.cpp
 CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.o: CMakeFiles/benchmark-basic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.o -MF CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.o.d -o CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.o -c /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/dgemm-basic.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/satvikverma/Workspace/CSC-746/cp2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.o -MF CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.o.d -o CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.o -c /Users/satvikverma/Workspace/CSC-746/cp2/dgemm-basic.cpp
 
 CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/dgemm-basic.cpp > CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/satvikverma/Workspace/CSC-746/cp2/dgemm-basic.cpp > CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.i
 
 CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/dgemm-basic.cpp -o CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/satvikverma/Workspace/CSC-746/cp2/dgemm-basic.cpp -o CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.s
 
 # Object files for target benchmark-basic
 benchmark__basic_OBJECTS = \
@@ -89,14 +89,14 @@ benchmark__basic_OBJECTS = \
 
 # External object files for target benchmark-basic
 benchmark__basic_EXTERNAL_OBJECTS = \
-"/Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build/CMakeFiles/benchmark.dir/benchmark.cpp.o"
+"/Users/satvikverma/Workspace/CSC-746/cp2/build/CMakeFiles/benchmark.dir/benchmark.cpp.o"
 
 benchmark-basic: CMakeFiles/benchmark-basic.dir/dgemm-basic.cpp.o
 benchmark-basic: CMakeFiles/benchmark.dir/benchmark.cpp.o
 benchmark-basic: CMakeFiles/benchmark-basic.dir/build.make
 benchmark-basic: /opt/homebrew/opt/openblas/lib/libopenblas.dylib
 benchmark-basic: CMakeFiles/benchmark-basic.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable benchmark-basic"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/satvikverma/Workspace/CSC-746/cp2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable benchmark-basic"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/benchmark-basic.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -108,6 +108,6 @@ CMakeFiles/benchmark-basic.dir/clean:
 .PHONY : CMakeFiles/benchmark-basic.dir/clean
 
 CMakeFiles/benchmark-basic.dir/depend:
-	cd /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build/CMakeFiles/benchmark-basic.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/satvikverma/Workspace/CSC-746/cp2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/satvikverma/Workspace/CSC-746/cp2 /Users/satvikverma/Workspace/CSC-746/cp2 /Users/satvikverma/Workspace/CSC-746/cp2/build /Users/satvikverma/Workspace/CSC-746/cp2/build /Users/satvikverma/Workspace/CSC-746/cp2/build/CMakeFiles/benchmark-basic.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/benchmark-basic.dir/depend
 

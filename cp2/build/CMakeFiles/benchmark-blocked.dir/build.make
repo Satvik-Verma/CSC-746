@@ -53,10 +53,10 @@ RM = /opt/homebrew/Cellar/cmake/3.30.3/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional
+CMAKE_SOURCE_DIR = /Users/satvikverma/Workspace/CSC-746/cp2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build
+CMAKE_BINARY_DIR = /Users/satvikverma/Workspace/CSC-746/cp2/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/benchmark-blocked.dir/depend.make
@@ -70,18 +70,18 @@ include CMakeFiles/benchmark-blocked.dir/progress.make
 include CMakeFiles/benchmark-blocked.dir/flags.make
 
 CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.o: CMakeFiles/benchmark-blocked.dir/flags.make
-CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.o: /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/dgemm-blocked.cpp
+CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.o: /Users/satvikverma/Workspace/CSC-746/cp2/dgemm-blocked.cpp
 CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.o: CMakeFiles/benchmark-blocked.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.o -MF CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.o.d -o CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.o -c /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/dgemm-blocked.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/satvikverma/Workspace/CSC-746/cp2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.o -MF CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.o.d -o CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.o -c /Users/satvikverma/Workspace/CSC-746/cp2/dgemm-blocked.cpp
 
 CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/dgemm-blocked.cpp > CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/satvikverma/Workspace/CSC-746/cp2/dgemm-blocked.cpp > CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.i
 
 CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/dgemm-blocked.cpp -o CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/satvikverma/Workspace/CSC-746/cp2/dgemm-blocked.cpp -o CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.s
 
 # Object files for target benchmark-blocked
 benchmark__blocked_OBJECTS = \
@@ -89,14 +89,14 @@ benchmark__blocked_OBJECTS = \
 
 # External object files for target benchmark-blocked
 benchmark__blocked_EXTERNAL_OBJECTS = \
-"/Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build/CMakeFiles/bench-blocked.dir/benchmark.cpp.o"
+"/Users/satvikverma/Workspace/CSC-746/cp2/build/CMakeFiles/bench-blocked.dir/benchmark.cpp.o"
 
 benchmark-blocked: CMakeFiles/benchmark-blocked.dir/dgemm-blocked.cpp.o
 benchmark-blocked: CMakeFiles/bench-blocked.dir/benchmark.cpp.o
 benchmark-blocked: CMakeFiles/benchmark-blocked.dir/build.make
 benchmark-blocked: /opt/homebrew/opt/openblas/lib/libopenblas.dylib
 benchmark-blocked: CMakeFiles/benchmark-blocked.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable benchmark-blocked"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/satvikverma/Workspace/CSC-746/cp2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable benchmark-blocked"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/benchmark-blocked.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -108,6 +108,6 @@ CMakeFiles/benchmark-blocked.dir/clean:
 .PHONY : CMakeFiles/benchmark-blocked.dir/clean
 
 CMakeFiles/benchmark-blocked.dir/depend:
-	cd /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build /Users/satvikverma/Workspace/CSC-746/cp2/mmul-harness-instructional/build/CMakeFiles/benchmark-blocked.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/satvikverma/Workspace/CSC-746/cp2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/satvikverma/Workspace/CSC-746/cp2 /Users/satvikverma/Workspace/CSC-746/cp2 /Users/satvikverma/Workspace/CSC-746/cp2/build /Users/satvikverma/Workspace/CSC-746/cp2/build /Users/satvikverma/Workspace/CSC-746/cp2/build/CMakeFiles/benchmark-blocked.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/benchmark-blocked.dir/depend
 
