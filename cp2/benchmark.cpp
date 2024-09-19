@@ -24,7 +24,7 @@ extern void square_dgemm_blocked(int, int, double*, double*, double*) ;
 extern const char* dgemm_desc;
 
 void reference_dgemm(int n, double alpha, double* A, double* B, double* C) {
-    cblas_dgemm(CblasColMajor, CblasNoTrans, CblasNoTrans, n, n, n, alpha, A, n, B, n, 1., C, n);
+    cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, n, n, n, alpha, A, n, B, n, 1., C, n);
 }
 
 void fill(double* p, int n) {
@@ -105,10 +105,9 @@ int main(int argc, char** argv)
 #endif
 
            // insert timer code here
-          std::chrono::time_point<std::chrono::high_resolution_clock> end_time = std::chrono::high_resolution_clock::now();
-          std::chrono::duration<double> elapsed = end_time - start_time;
-          std::cout << " Elapsed time is : " << elapsed.count() << " " << std::endl;
-
+            std::chrono::time_point<std::chrono::high_resolution_clock> end_time = std::chrono::high_resolution_clock::now();
+            std::chrono::duration<double> elapsed = end_time - start_time;
+            std::cout << " Elapsed time is : " << elapsed.count() << " " << std::endl;
            reference_dgemm(n, 1.0 , Acopy, Bcopy, Ccopy);
 
            // compare your C with that computed by BLAS
