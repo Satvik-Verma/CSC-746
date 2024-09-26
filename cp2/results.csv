@@ -1,8 +1,4 @@
-satvik@perlmutter:login37:~/CSC-746/cp2/build> salloc --nodes=1 --qos=interactive --time=00:15:00 --constraint=cpu --account=m3930
-salloc: Granted job allocation 30641177
-salloc: Waiting for resource configuration
-salloc: Nodes nid004174 are ready for job
-satvik@nid004174:~/CSC-746/cp2/build> ./benchmark-basic
+
 Description:	Basic implementation, three-loop dgemm.
 
 Working on problem size N=64
