@@ -73,15 +73,15 @@ CMakeFiles/benchmark.dir/benchmark.cpp.o: CMakeFiles/benchmark.dir/flags.make
 CMakeFiles/benchmark.dir/benchmark.cpp.o: /Users/satvikverma/Workspace/CSC-746/cp3/benchmark.cpp
 CMakeFiles/benchmark.dir/benchmark.cpp.o: CMakeFiles/benchmark.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/satvikverma/Workspace/CSC-746/cp3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/benchmark.dir/benchmark.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/benchmark.dir/benchmark.cpp.o -MF CMakeFiles/benchmark.dir/benchmark.cpp.o.d -o CMakeFiles/benchmark.dir/benchmark.cpp.o -c /Users/satvikverma/Workspace/CSC-746/cp3/benchmark.cpp
+	/opt/homebrew/bin/g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/benchmark.dir/benchmark.cpp.o -MF CMakeFiles/benchmark.dir/benchmark.cpp.o.d -o CMakeFiles/benchmark.dir/benchmark.cpp.o -c /Users/satvikverma/Workspace/CSC-746/cp3/benchmark.cpp
 
 CMakeFiles/benchmark.dir/benchmark.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/benchmark.dir/benchmark.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/satvikverma/Workspace/CSC-746/cp3/benchmark.cpp > CMakeFiles/benchmark.dir/benchmark.cpp.i
+	/opt/homebrew/bin/g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/satvikverma/Workspace/CSC-746/cp3/benchmark.cpp > CMakeFiles/benchmark.dir/benchmark.cpp.i
 
 CMakeFiles/benchmark.dir/benchmark.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/benchmark.dir/benchmark.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/satvikverma/Workspace/CSC-746/cp3/benchmark.cpp -o CMakeFiles/benchmark.dir/benchmark.cpp.s
+	/opt/homebrew/bin/g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/satvikverma/Workspace/CSC-746/cp3/benchmark.cpp -o CMakeFiles/benchmark.dir/benchmark.cpp.s
 
 benchmark: CMakeFiles/benchmark.dir/benchmark.cpp.o
 benchmark: CMakeFiles/benchmark.dir/build.make

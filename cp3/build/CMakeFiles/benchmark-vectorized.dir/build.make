@@ -73,15 +73,15 @@ CMakeFiles/benchmark-vectorized.dir/dgemv-vectorized.cpp.o: CMakeFiles/benchmark
 CMakeFiles/benchmark-vectorized.dir/dgemv-vectorized.cpp.o: /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp
 CMakeFiles/benchmark-vectorized.dir/dgemv-vectorized.cpp.o: CMakeFiles/benchmark-vectorized.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/satvikverma/Workspace/CSC-746/cp3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/benchmark-vectorized.dir/dgemv-vectorized.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/benchmark-vectorized.dir/dgemv-vectorized.cpp.o -MF CMakeFiles/benchmark-vectorized.dir/dgemv-vectorized.cpp.o.d -o CMakeFiles/benchmark-vectorized.dir/dgemv-vectorized.cpp.o -c /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp
+	/opt/homebrew/bin/g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/benchmark-vectorized.dir/dgemv-vectorized.cpp.o -MF CMakeFiles/benchmark-vectorized.dir/dgemv-vectorized.cpp.o.d -o CMakeFiles/benchmark-vectorized.dir/dgemv-vectorized.cpp.o -c /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp
 
 CMakeFiles/benchmark-vectorized.dir/dgemv-vectorized.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/benchmark-vectorized.dir/dgemv-vectorized.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp > CMakeFiles/benchmark-vectorized.dir/dgemv-vectorized.cpp.i
+	/opt/homebrew/bin/g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp > CMakeFiles/benchmark-vectorized.dir/dgemv-vectorized.cpp.i
 
 CMakeFiles/benchmark-vectorized.dir/dgemv-vectorized.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/benchmark-vectorized.dir/dgemv-vectorized.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp -o CMakeFiles/benchmark-vectorized.dir/dgemv-vectorized.cpp.s
+	/opt/homebrew/bin/g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp -o CMakeFiles/benchmark-vectorized.dir/dgemv-vectorized.cpp.s
 
 # Object files for target benchmark-vectorized
 benchmark__vectorized_OBJECTS = \
