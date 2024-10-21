@@ -1,0 +1,110 @@
+satvik@nid004284:~/CSC-746/cp3/build> ./benchmark-basic
+Description:	Basic implementation of matrix-vector multiply.
+
+Working on problem size N=1024
+ Elapsed time is : 0.00089
+Working on problem size N=1024
+ Elapsed time is : 0.00088
+Working on problem size N=2048
+ Elapsed time is : 0.00358
+Working on problem size N=4096
+ Elapsed time is : 0.01460
+Working on problem size N=8192
+ Elapsed time is : 0.05827
+Working on problem size N=16384
+ Elapsed time is : 0.23393
+satvik@nid004284:~/CSC-746/cp3/build> ./benchmark-vectorized
+Description:	Vectorized implementation of matrix-vector multiply.
+
+Working on problem size N=1024
+ Elapsed time is : 0.00021
+Working on problem size N=1024
+ Elapsed time is : 0.00021
+Working on problem size N=2048
+ Elapsed time is : 0.00090
+Working on problem size N=4096
+ Elapsed time is : 0.00412
+Working on problem size N=8192
+ Elapsed time is : 0.01727
+Working on problem size N=16384
+ Elapsed time is : 0.06938
+satvik@nid004284:~/CSC-746/cp3/build> ./benchmark-blas
+Description:	Reference dgemv.
+
+Working on problem size N=1024
+ Elapsed time is : 0.00031
+Working on problem size N=1024
+ Elapsed time is : 0.00016
+Working on problem size N=2048
+ Elapsed time is : 0.00050
+Working on problem size N=4096
+ Elapsed time is : 0.00412
+Working on problem size N=8192
+ Elapsed time is : 0.01854
+Working on problem size N=16384
+ Elapsed time is : 0.07603
+satvik@nid004284:~/CSC-746/cp3/build> export OMP_NUM_THREADS=1
+satvik@nid004284:~/CSC-746/cp3/build> export OMP_NUM_THREADS=1
+satvik@nid004284:~/CSC-746/cp3/build> ./benchmark-openmp
+Description:	OpenMP dgemv.
+
+Working on problem size N=1024
+ Elapsed time is : 0.00092
+Working on problem size N=1024
+ Elapsed time is : 0.00090
+Working on problem size N=2048
+ Elapsed time is : 0.00360
+Working on problem size N=4096
+ Elapsed time is : 0.01466
+Working on problem size N=8192
+ Elapsed time is : 0.05883
+Working on problem size N=16384
+ Elapsed time is : 0.23549
+satvik@nid004284:~/CSC-746/cp3/build> export OMP_NUM_THREADS=4
+satvik@nid004284:~/CSC-746/cp3/build> ./benchmark-openmp
+Description:	OpenMP dgemv.
+
+Working on problem size N=1024
+ Elapsed time is : 0.00095
+Working on problem size N=1024
+ Elapsed time is : 0.00048
+Working on problem size N=2048
+ Elapsed time is : 0.00136
+Working on problem size N=4096
+ Elapsed time is : 0.00452
+Working on problem size N=8192
+ Elapsed time is : 0.01541
+Working on problem size N=16384
+ Elapsed time is : 0.06035
+satvik@nid004284:~/CSC-746/cp3/build> export OMP_NUM_THREADS=16
+satvik@nid004284:~/CSC-746/cp3/build> ./benchmark-openmp
+Description:	OpenMP dgemv.
+
+Working on problem size N=1024
+ Elapsed time is : 0.00217
+Working on problem size N=1024
+ Elapsed time is : 0.00028
+Working on problem size N=2048
+ Elapsed time is : 0.00177
+Working on problem size N=4096
+ Elapsed time is : 0.00379
+Working on problem size N=8192
+ Elapsed time is : 0.01469
+Working on problem size N=16384
+ Elapsed time is : 0.05881
+satvik@nid004284:~/CSC-746/cp3/build> export OMP_NUM_THREADS=64
+satvik@nid004284:~/CSC-746/cp3/build> ./benchmark-openmp
+Description:	OpenMP dgemv.
+
+Working on problem size N=1024
+ Elapsed time is : 0.00772
+Working on problem size N=1024
+ Elapsed time is : 0.00079
+Working on problem size N=2048
+ Elapsed time is : 0.00183
+Working on problem size N=4096
+ Elapsed time is : 0.00442
+Working on problem size N=8192
+ Elapsed time is : 0.01542
+Working on problem size N=16384
+ Elapsed time is : 0.06105

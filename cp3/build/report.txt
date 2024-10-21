@@ -5,12 +5,12 @@
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: ***** Analysis succeeded with vector mode V2DF
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: SLPing BB part
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: Costing subgraph: 
-/Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: node 0x118098008 (max_nunits=2, refcnt=1) vector(2) long unsigned int
+/Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: node 0x130088008 (max_nunits=2, refcnt=1) vector(2) long unsigned int
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: op template: _2 = (long unsigned int) _1;
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: 	stmt 0 _2 = (long unsigned int) _1;
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: 	stmt 1 _45 = (long unsigned int) j_15;
-/Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: 	children 0x118098118
-/Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: node (external) 0x118098118 (max_nunits=1, refcnt=1) vector(2) int
+/Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: 	children 0x130088118
+/Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: node (external) 0x130088118 (max_nunits=1, refcnt=1) vector(2) int
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: 	{ _1, j_15 }
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: Cost model analysis: 
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: Cost model analysis for part in loop 1:
@@ -22,12 +22,12 @@
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: ***** Analysis succeeded with vector mode V8QI
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: SLPing BB part
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: Costing subgraph: 
-/Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: node 0x118098008 (max_nunits=2, refcnt=1) vector(2) long unsigned int
+/Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: node 0x130088008 (max_nunits=2, refcnt=1) vector(2) long unsigned int
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: op template: _2 = (long unsigned int) _1;
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: 	stmt 0 _2 = (long unsigned int) _1;
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: 	stmt 1 _45 = (long unsigned int) j_15;
-/Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: 	children 0x1180981a0
-/Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: node (external) 0x1180981a0 (max_nunits=1, refcnt=1) vector(2) int
+/Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: 	children 0x1300881a0
+/Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: node (external) 0x1300881a0 (max_nunits=1, refcnt=1) vector(2) int
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: 	{ _1, j_15 }
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: Cost model analysis: 
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: Cost model analysis for part in loop 1:
@@ -39,12 +39,12 @@
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: ***** Analysis succeeded with vector mode V2SI
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: SLPing BB part
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: Costing subgraph: 
-/Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: node 0x118098008 (max_nunits=2, refcnt=1) vector(2) long unsigned int
+/Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: node 0x130088008 (max_nunits=2, refcnt=1) vector(2) long unsigned int
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: op template: _2 = (long unsigned int) _1;
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: 	stmt 0 _2 = (long unsigned int) _1;
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: 	stmt 1 _45 = (long unsigned int) j_15;
-/Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: 	children 0x118098228
-/Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: node (external) 0x118098228 (max_nunits=1, refcnt=1) vector(2) int
+/Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: 	children 0x130088228
+/Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: node (external) 0x130088228 (max_nunits=1, refcnt=1) vector(2) int
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: 	{ _1, j_15 }
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: Cost model analysis: 
 /Users/satvikverma/Workspace/CSC-746/cp3/dgemv-vectorized.cpp:9:6: note: Cost model analysis for part in loop 1:

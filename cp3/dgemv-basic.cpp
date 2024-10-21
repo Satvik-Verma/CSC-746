@@ -6,16 +6,19 @@ const char* dgemv_desc = "Basic implementation of matrix-vector multiply.";
  * where A is n-by-n matrix stored in row-major format, and X and Y are n by 1 vectors.
  * On exit, A and X maintain their input values.
  */
-void my_dgemv(int N, double *A, double *x, double *y) {
-    for (int i = 0; i < N; ++i) {
-        double temp = 0.0; // Accumulate the dot product
-        double *A_row = &A[i * N]; // Pointer to the start of the current row of A
-        for (int j = 0; j < N; ++j) {
-            temp += A_row[j] * x[j]; // Access elements of A using a simple stride
+
+void my_dgemv(int n, double* A, double* x, double* y) {
+    for (int i = 0; i < n; i++) {
+        double temp = 0.0;
+        double* A_row = &A[i * n];  // Precompute the start of the row in A
+        for (int j = 0; j < n; j++) {
+            temp += A_row[j] * x[j];  // Simplified indexing: only use j
         }
         y[i] += temp;
     }
 }
+
+
 
 
 
