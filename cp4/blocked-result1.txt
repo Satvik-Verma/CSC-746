@@ -1,0 +1,804 @@
+likwid-perfctr -m -g FLOPS_DP -C N:0-0 ./benchmark-blocked-omp -N 128 -B 4
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=128 
+Blocked DGEMM 
+ Working on Block size = 4 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 0.0027 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: FLOPS_DP
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.002206 |
+|     call count    |          1 |
++-------------------+------------+
+
++---------------------------+---------+------------+
+|           Event           | Counter | HWThread 0 |
++---------------------------+---------+------------+
+|      ACTUAL_CPU_CLOCK     |  FIXC1  |    7175234 |
+|       MAX_CPU_CLOCK       |  FIXC2  |    5532933 |
+|    RETIRED_INSTRUCTIONS   |   PMC0  |   31594360 |
+|    CPU_CLOCKS_UNHALTED    |   PMC1  |    6975585 |
+| RETIRED_SSE_AVX_FLOPS_ALL |   PMC2  |    4194314 |
+|           MERGE           |   PMC3  |          0 |
++---------------------------+---------+------------+
+
++----------------------+------------+
+|        Metric        | HWThread 0 |
++----------------------+------------+
+|  Runtime (RDTSC) [s] |     0.0022 |
+| Runtime unhalted [s] |     0.0029 |
+|      Clock [MHz]     |  3171.0435 |
+|          CPI         |     0.2208 |
+|     DP [MFLOP/s]     |  1901.0952 |
++----------------------+------------+
+
+likwid-perfctr -m -g L2CACHE -C N:0-0 ./benchmark-blocked-omp -N 128 -B 4
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=128 
+Blocked DGEMM 
+ Working on Block size = 4 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 0.0025 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L2CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.001992 |
+|     call count    |          1 |
++-------------------+------------+
+
++--------------------------------+---------+------------+
+|              Event             | Counter | HWThread 0 |
++--------------------------------+---------+------------+
+|  REQUESTS_TO_L2_GRP1_ALL_NO_PF |   PMC0  |     220352 |
+|         L2_PF_HIT_IN_L2        |   PMC1  |     254966 |
+|         L2_PF_HIT_IN_L3        |   PMC2  |       2532 |
+|        L2_PF_MISS_IN_L3        |   PMC3  |       3292 |
+| CORE_TO_L2_CACHE_REQUESTS_HITS |   PMC4  |     216809 |
+|      RETIRED_INSTRUCTIONS      |   PMC5  |          0 |
++--------------------------------+---------+------------+
+
++----------------------+--------------+
+|        Metric        |  HWThread 0  |
++----------------------+--------------+
+|  Runtime (RDTSC) [s] |       0.0020 |
+| Runtime unhalted [s] | 4.089543e-10 |
+|    L2 request rate   |      inf     |
+|     L2 miss rate     |      inf     |
+|     L2 miss ratio    |       0.0195 |
+|      L2 accesses     |       481142 |
+|        L2 hits       |       471775 |
+|       L2 misses      |         9367 |
++----------------------+--------------+
+
+likwid-perfctr -m -g L3CACHE -C N:0-0 ./benchmark-blocked-omp -N 128 -B 4
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=128 
+Blocked DGEMM 
+ Working on Block size = 4 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 0.0025 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.002103 |
+|     call count    |          1 |
++-------------------+------------+
+
++----------------------+---------+------------+
+|         Event        | Counter | HWThread 0 |
++----------------------+---------+------------+
+| RETIRED_INSTRUCTIONS |   PMC0  |   31594030 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  |    7032296 |
+|     L3_CACHE_REQ     |  CPMC0  |      20079 |
+|      L3_MISS_REQ     |  CPMC1  |       7525 |
+|   L3_CACHE_REQ_MISS  |  CPMC2  |       4020 |
++----------------------+---------+------------+
+
++---------------------+------------+
+|        Metric       | HWThread 0 |
++---------------------+------------+
+| Runtime (RDTSC) [s] |     0.0021 |
+|         CPI         |     inf    |
+|   L3 request rate   |     0.0006 |
+|     L3 miss rate    |     0.0001 |
+|    L3 miss ratio    |     0.2002 |
++---------------------+------------+
+
+likwid-perfctr -m -g FLOPS_DP -C N:0-0 ./benchmark-blocked-omp -N 128 -B 16
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=128 
+Blocked DGEMM 
+ Working on Block size = 16 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 0.0015 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: FLOPS_DP
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.001062 |
+|     call count    |          1 |
++-------------------+------------+
+
++---------------------------+---------+------------+
+|           Event           | Counter | HWThread 0 |
++---------------------------+---------+------------+
+|      ACTUAL_CPU_CLOCK     |  FIXC1  |    3918133 |
+|       MAX_CPU_CLOCK       |  FIXC2  |    2724523 |
+|    RETIRED_INSTRUCTIONS   |   PMC0  |   13929300 |
+|    CPU_CLOCKS_UNHALTED    |   PMC1  |    3704648 |
+| RETIRED_SSE_AVX_FLOPS_ALL |   PMC2  |    4194314 |
+|           MERGE           |   PMC3  |          0 |
++---------------------------+---------+------------+
+
++----------------------+------------+
+|        Metric        | HWThread 0 |
++----------------------+------------+
+|  Runtime (RDTSC) [s] |     0.0011 |
+| Runtime unhalted [s] |     0.0016 |
+|      Clock [MHz]     |  3516.5199 |
+|          CPI         |     0.2660 |
+|     DP [MFLOP/s]     |  3950.1363 |
++----------------------+------------+
+
+likwid-perfctr -m -g L2CACHE -C N:0-0 ./benchmark-blocked-omp -N 128 -B 16
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=128 
+Blocked DGEMM 
+ Working on Block size = 16 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 0.0015 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L2CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.001092 |
+|     call count    |          1 |
++-------------------+------------+
+
++--------------------------------+---------+------------+
+|              Event             | Counter | HWThread 0 |
++--------------------------------+---------+------------+
+|  REQUESTS_TO_L2_GRP1_ALL_NO_PF |   PMC0  |      55810 |
+|         L2_PF_HIT_IN_L2        |   PMC1  |      37990 |
+|         L2_PF_HIT_IN_L3        |   PMC2  |       4406 |
+|        L2_PF_MISS_IN_L3        |   PMC3  |         54 |
+| CORE_TO_L2_CACHE_REQUESTS_HITS |   PMC4  |      51240 |
+|      RETIRED_INSTRUCTIONS      |   PMC5  |          0 |
++--------------------------------+---------+------------+
+
++----------------------+--------------+
+|        Metric        |  HWThread 0  |
++----------------------+--------------+
+|  Runtime (RDTSC) [s] |       0.0011 |
+| Runtime unhalted [s] | 4.089542e-10 |
+|    L2 request rate   |      inf     |
+|     L2 miss rate     |      inf     |
+|     L2 miss ratio    |       0.0919 |
+|      L2 accesses     |        98260 |
+|        L2 hits       |        89230 |
+|       L2 misses      |         9030 |
++----------------------+--------------+
+
+likwid-perfctr -m -g L3CACHE -C N:0-0 ./benchmark-blocked-omp -N 128 -B 16
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=128 
+Blocked DGEMM 
+ Working on Block size = 16 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 0.0015 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.001093 |
+|     call count    |          1 |
++-------------------+------------+
+
++----------------------+---------+------------+
+|         Event        | Counter | HWThread 0 |
++----------------------+---------+------------+
+| RETIRED_INSTRUCTIONS |   PMC0  |   13928800 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  |    3433680 |
+|     L3_CACHE_REQ     |  CPMC0  |       8778 |
+|      L3_MISS_REQ     |  CPMC1  |       6074 |
+|   L3_CACHE_REQ_MISS  |  CPMC2  |       3704 |
++----------------------+---------+------------+
+
++---------------------+------------+
+|        Metric       | HWThread 0 |
++---------------------+------------+
+| Runtime (RDTSC) [s] |     0.0011 |
+|         CPI         |     inf    |
+|   L3 request rate   |     0.0006 |
+|     L3 miss rate    |     0.0003 |
+|    L3 miss ratio    |     0.4220 |
++---------------------+------------+
+
+likwid-perfctr -m -g FLOPS_DP -C N:0-0 ./benchmark-blocked-omp -N 512 -B 4
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=512 
+Blocked DGEMM 
+ Working on Block size = 4 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 0.1349 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: FLOPS_DP
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.134456 |
+|     call count    |          1 |
++-------------------+------------+
+
++---------------------------+---------+------------+
+|           Event           | Counter | HWThread 0 |
++---------------------------+---------+------------+
+|      ACTUAL_CPU_CLOCK     |  FIXC1  |  472455400 |
+|       MAX_CPU_CLOCK       |  FIXC2  |  328906200 |
+|    RETIRED_INSTRUCTIONS   |   PMC0  | 1649664000 |
+|    CPU_CLOCKS_UNHALTED    |   PMC1  |  386592500 |
+| RETIRED_SSE_AVX_FLOPS_ALL |   PMC2  |  220236900 |
+|           MERGE           |   PMC3  |          0 |
++---------------------------+---------+------------+
+
++----------------------+------------+
+|        Metric        | HWThread 0 |
++----------------------+------------+
+|  Runtime (RDTSC) [s] |     0.1345 |
+| Runtime unhalted [s] |     0.1932 |
+|      Clock [MHz]     |  3512.4779 |
+|          CPI         |     0.2343 |
+|     DP [MFLOP/s]     |  1637.9886 |
++----------------------+------------+
+
+likwid-perfctr -m -g L2CACHE -C N:0-0 ./benchmark-blocked-omp -N 512 -B 4
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=512 
+Blocked DGEMM 
+ Working on Block size = 4 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 0.1344 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L2CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.133839 |
+|     call count    |          1 |
++-------------------+------------+
+
++--------------------------------+---------+------------+
+|              Event             | Counter | HWThread 0 |
++--------------------------------+---------+------------+
+|  REQUESTS_TO_L2_GRP1_ALL_NO_PF |   PMC0  |    9912425 |
+|         L2_PF_HIT_IN_L2        |   PMC1  |    6511690 |
+|         L2_PF_HIT_IN_L3        |   PMC2  |    4848075 |
+|        L2_PF_MISS_IN_L3        |   PMC3  |      58242 |
+| CORE_TO_L2_CACHE_REQUESTS_HITS |   PMC4  |    3287262 |
+|      RETIRED_INSTRUCTIONS      |   PMC5  | 1524183000 |
++--------------------------------+---------+------------+
+
++----------------------+--------------+
+|        Metric        |  HWThread 0  |
++----------------------+--------------+
+|  Runtime (RDTSC) [s] |       0.1338 |
+| Runtime unhalted [s] | 4.089554e-10 |
+|    L2 request rate   |       0.0140 |
+|     L2 miss rate     |       0.0076 |
+|     L2 miss ratio    |       0.5406 |
+|      L2 accesses     |     21330432 |
+|        L2 hits       |      9798952 |
+|       L2 misses      |     11531480 |
++----------------------+--------------+
+
+likwid-perfctr -m -g L3CACHE -C N:0-0 ./benchmark-blocked-omp -N 512 -B 4
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=512 
+Blocked DGEMM 
+ Working on Block size = 4 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 0.1343 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.133852 |
+|     call count    |          1 |
++-------------------+------------+
+
++----------------------+---------+------------+
+|         Event        | Counter | HWThread 0 |
++----------------------+---------+------------+
+| RETIRED_INSTRUCTIONS |   PMC0  | 2005840000 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  |  469757000 |
+|     L3_CACHE_REQ     |  CPMC0  |   14665410 |
+|      L3_MISS_REQ     |  CPMC1  |     150693 |
+|   L3_CACHE_REQ_MISS  |  CPMC2  |     101926 |
++----------------------+---------+------------+
+
++---------------------+------------+
+|        Metric       | HWThread 0 |
++---------------------+------------+
+| Runtime (RDTSC) [s] |     0.1339 |
+|         CPI         |     inf    |
+|   L3 request rate   |     0.0073 |
+|     L3 miss rate    |     0.0001 |
+|    L3 miss ratio    |     0.0070 |
++---------------------+------------+
+
+likwid-perfctr -m -g FLOPS_DP -C N:0-0 ./benchmark-blocked-omp -N 512 -B 16
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=512 
+Blocked DGEMM 
+ Working on Block size = 16 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 0.0590 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: FLOPS_DP
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.058529 |
+|     call count    |          1 |
++-------------------+------------+
+
++---------------------------+---------+------------+
+|           Event           | Counter | HWThread 0 |
++---------------------------+---------+------------+
+|      ACTUAL_CPU_CLOCK     |  FIXC1  |  205974100 |
+|       MAX_CPU_CLOCK       |  FIXC2  |  143245200 |
+|    RETIRED_INSTRUCTIONS   |   PMC0  |  704047900 |
+|    CPU_CLOCKS_UNHALTED    |   PMC1  |  163550700 |
+| RETIRED_SSE_AVX_FLOPS_ALL |   PMC2  |  231639100 |
+|           MERGE           |   PMC3  |          0 |
++---------------------------+---------+------------+
+
++----------------------+------------+
+|        Metric        | HWThread 0 |
++----------------------+------------+
+|  Runtime (RDTSC) [s] |     0.0585 |
+| Runtime unhalted [s] |     0.0842 |
+|      Clock [MHz]     |  3516.0281 |
+|          CPI         |     0.2323 |
+|     DP [MFLOP/s]     |  3957.7058 |
++----------------------+------------+
+
+likwid-perfctr -m -g L2CACHE -C N:0-0 ./benchmark-blocked-omp -N 512 -B 16
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=512 
+Blocked DGEMM 
+ Working on Block size = 16 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 0.0596 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L2CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.059039 |
+|     call count    |          1 |
++-------------------+------------+
+
++--------------------------------+---------+------------+
+|              Event             | Counter | HWThread 0 |
++--------------------------------+---------+------------+
+|  REQUESTS_TO_L2_GRP1_ALL_NO_PF |   PMC0  |    3411348 |
+|         L2_PF_HIT_IN_L2        |   PMC1  |    2394721 |
+|         L2_PF_HIT_IN_L3        |   PMC2  |     820041 |
+|        L2_PF_MISS_IN_L3        |   PMC3  |      73004 |
+| CORE_TO_L2_CACHE_REQUESTS_HITS |   PMC4  |    2310680 |
+|      RETIRED_INSTRUCTIONS      |   PMC5  |  700214400 |
++--------------------------------+---------+------------+
+
++----------------------+--------------+
+|        Metric        |  HWThread 0  |
++----------------------+--------------+
+|  Runtime (RDTSC) [s] |       0.0590 |
+| Runtime unhalted [s] | 4.089556e-10 |
+|    L2 request rate   |       0.0096 |
+|     L2 miss rate     |       0.0028 |
+|     L2 miss ratio    |       0.2976 |
+|      L2 accesses     |      6699114 |
+|        L2 hits       |      4705401 |
+|       L2 misses      |      1993713 |
++----------------------+--------------+
+
+likwid-perfctr -m -g L3CACHE -C N:0-0 ./benchmark-blocked-omp -N 512 -B 16
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=512 
+Blocked DGEMM 
+ Working on Block size = 16 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 0.0588 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.058374 |
+|     call count    |          1 |
++-------------------+------------+
+
++----------------------+---------+------------+
+|         Event        | Counter | HWThread 0 |
++----------------------+---------+------------+
+| RETIRED_INSTRUCTIONS |   PMC0  |  885782800 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  |  204897400 |
+|     L3_CACHE_REQ     |  CPMC0  |    2764268 |
+|      L3_MISS_REQ     |  CPMC1  |     942984 |
+|   L3_CACHE_REQ_MISS  |  CPMC2  |     120526 |
++----------------------+---------+------------+
+
++---------------------+------------+
+|        Metric       | HWThread 0 |
++---------------------+------------+
+| Runtime (RDTSC) [s] |     0.0584 |
+|         CPI         |     inf    |
+|   L3 request rate   |     0.0031 |
+|     L3 miss rate    |     0.0001 |
+|    L3 miss ratio    |     0.0436 |
++---------------------+------------+
+
+likwid-perfctr -m -g FLOPS_DP -C N:0-0 ./benchmark-blocked-omp -N 2048 -B 4
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=2048 
+Blocked DGEMM 
+ Working on Block size = 4 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 9.6915 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: FLOPS_DP
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   9.690924 |
+|     call count    |          1 |
++-------------------+------------+
+
++---------------------------+---------+--------------+
+|           Event           | Counter |  HWThread 0  |
++---------------------------+---------+--------------+
+|      ACTUAL_CPU_CLOCK     |  FIXC1  |  33972140000 |
+|       MAX_CPU_CLOCK       |  FIXC2  |  23696980000 |
+|    RETIRED_INSTRUCTIONS   |   PMC0  | 106788500000 |
+|    CPU_CLOCKS_UNHALTED    |   PMC1  |  28187200000 |
+| RETIRED_SSE_AVX_FLOPS_ALL |   PMC2  |  14316790000 |
+|           MERGE           |   PMC3  |            0 |
++---------------------------+---------+--------------+
+
++----------------------+------------+
+|        Metric        | HWThread 0 |
++----------------------+------------+
+|  Runtime (RDTSC) [s] |     9.6909 |
+| Runtime unhalted [s] |    13.8931 |
+|      Clock [MHz]     |  3505.5409 |
+|          CPI         |     0.2640 |
+|     DP [MFLOP/s]     |  1477.3400 |
++----------------------+------------+
+
+likwid-perfctr -m -g L2CACHE -C N:0-0 ./benchmark-blocked-omp -N 2048 -B 4
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=2048 
+Blocked DGEMM 
+ Working on Block size = 4 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 9.6962 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L2CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   9.695620 |
+|     call count    |          1 |
++-------------------+------------+
+
++--------------------------------+---------+-------------+
+|              Event             | Counter |  HWThread 0 |
++--------------------------------+---------+-------------+
+|  REQUESTS_TO_L2_GRP1_ALL_NO_PF |   PMC0  |   950830000 |
+|         L2_PF_HIT_IN_L2        |   PMC1  |   861765300 |
+|         L2_PF_HIT_IN_L3        |   PMC2  |   369039200 |
+|        L2_PF_MISS_IN_L3        |   PMC3  |    25626480 |
+| CORE_TO_L2_CACHE_REQUESTS_HITS |   PMC4  |   529231900 |
+|      RETIRED_INSTRUCTIONS      |   PMC5  | 95995050000 |
++--------------------------------+---------+-------------+
+
++----------------------+--------------+
+|        Metric        |  HWThread 0  |
++----------------------+--------------+
+|  Runtime (RDTSC) [s] |       9.6956 |
+| Runtime unhalted [s] | 4.089549e-10 |
+|    L2 request rate   |       0.0230 |
+|     L2 miss rate     |       0.0085 |
+|     L2 miss ratio    |       0.3698 |
+|      L2 accesses     |   2207260980 |
+|        L2 hits       |   1390997200 |
+|       L2 misses      |    816263780 |
++----------------------+--------------+
+
+likwid-perfctr -m -g L3CACHE -C N:0-0 ./benchmark-blocked-omp -N 2048 -B 4
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=2048 
+Blocked DGEMM 
+ Working on Block size = 4 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 9.5814 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   9.580949 |
+|     call count    |          1 |
++-------------------+------------+
+
++----------------------+---------+--------------+
+|         Event        | Counter |  HWThread 0  |
++----------------------+---------+--------------+
+| RETIRED_INSTRUCTIONS |   PMC0  | 128126000000 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  |  33546850000 |
+|     L3_CACHE_REQ     |  CPMC0  |   1075549000 |
+|      L3_MISS_REQ     |  CPMC1  |     98230690 |
+|   L3_CACHE_REQ_MISS  |  CPMC2  |     49434920 |
++----------------------+---------+--------------+
+
++---------------------+------------+
+|        Metric       | HWThread 0 |
++---------------------+------------+
+| Runtime (RDTSC) [s] |     9.5809 |
+|         CPI         |     inf    |
+|   L3 request rate   |     0.0084 |
+|     L3 miss rate    |     0.0004 |
+|    L3 miss ratio    |     0.0460 |
++---------------------+------------+
+
+likwid-perfctr -m -g FLOPS_DP -C N:0-0 ./benchmark-blocked-omp -N 2048 -B 16
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=2048 
+Blocked DGEMM 
+ Working on Block size = 16 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 3.9503 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: FLOPS_DP
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   3.953404 |
+|     call count    |          1 |
++-------------------+------------+
+
++---------------------------+---------+-------------+
+|           Event           | Counter |  HWThread 0 |
++---------------------------+---------+-------------+
+|      ACTUAL_CPU_CLOCK     |  FIXC1  | 13849560000 |
+|       MAX_CPU_CLOCK       |  FIXC2  |  9658469000 |
+|    RETIRED_INSTRUCTIONS   |   PMC0  | 47145780000 |
+|    CPU_CLOCKS_UNHALTED    |   PMC1  | 11491030000 |
+| RETIRED_SSE_AVX_FLOPS_ALL |   PMC2  | 14322790000 |
+|           MERGE           |   PMC3  |           0 |
++---------------------------+---------+-------------+
+
++----------------------+------------+
+|        Metric        | HWThread 0 |
++----------------------+------------+
+|  Runtime (RDTSC) [s] |     3.9534 |
+| Runtime unhalted [s] |     5.6639 |
+|      Clock [MHz]     |  3506.3204 |
+|          CPI         |     0.2437 |
+|     DP [MFLOP/s]     |  3622.9007 |
++----------------------+------------+
+
+likwid-perfctr -m -g L2CACHE -C N:0-0 ./benchmark-blocked-omp -N 2048 -B 16
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=2048 
+Blocked DGEMM 
+ Working on Block size = 16 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 4.2547 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L2CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   4.254168 |
+|     call count    |          1 |
++-------------------+------------+
+
++--------------------------------+---------+-------------+
+|              Event             | Counter |  HWThread 0 |
++--------------------------------+---------+-------------+
+|  REQUESTS_TO_L2_GRP1_ALL_NO_PF |   PMC0  |   460724500 |
+|         L2_PF_HIT_IN_L2        |   PMC1  |   226598700 |
+|         L2_PF_HIT_IN_L3        |   PMC2  |    89897780 |
+|        L2_PF_MISS_IN_L3        |   PMC3  |    13246400 |
+| CORE_TO_L2_CACHE_REQUESTS_HITS |   PMC4  |   384719300 |
+|      RETIRED_INSTRUCTIONS      |   PMC5  | 42526800000 |
++--------------------------------+---------+-------------+
+
++----------------------+--------------+
+|        Metric        |  HWThread 0  |
++----------------------+--------------+
+|  Runtime (RDTSC) [s] |       4.2542 |
+| Runtime unhalted [s] | 4.089583e-10 |
+|    L2 request rate   |       0.0186 |
+|     L2 miss rate     |       0.0042 |
+|     L2 miss ratio    |       0.2266 |
+|      L2 accesses     |    790467380 |
+|        L2 hits       |    611318000 |
+|       L2 misses      |    179149380 |
++----------------------+--------------+
+
+likwid-perfctr -m -g L3CACHE -C N:0-0 ./benchmark-blocked-omp -N 2048 -B 16
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=2048 
+Blocked DGEMM 
+ Working on Block size = 16 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 3.9669 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   3.966291 |
+|     call count    |          1 |
++-------------------+------------+
+
++----------------------+---------+-------------+
+|         Event        | Counter |  HWThread 0 |
++----------------------+---------+-------------+
+| RETIRED_INSTRUCTIONS |   PMC0  | 56611350000 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  | 13794430000 |
+|     L3_CACHE_REQ     |  CPMC0  |   213866100 |
+|      L3_MISS_REQ     |  CPMC1  |    89058940 |
+|   L3_CACHE_REQ_MISS  |  CPMC2  |    25335450 |
++----------------------+---------+-------------+
+
++---------------------+------------+
+|        Metric       | HWThread 0 |
++---------------------+------------+
+| Runtime (RDTSC) [s] |     3.9663 |
+|         CPI         |     inf    |
+|   L3 request rate   |     0.0038 |
+|     L3 miss rate    |     0.0004 |
+|    L3 miss ratio    |     0.1185 |
++---------------------+------------+
+

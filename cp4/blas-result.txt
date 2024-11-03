@@ -1,0 +1,374 @@
+likwid-perfctr -m -g FLOPS_DP -C N:0 ./benchmark-blas -N 128
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Reference dgemm.
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=128 
+ Elapsed time is : 0.0003 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: FLOPS_DP
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.000255 |
+|     call count    |          1 |
++-------------------+------------+
+
++---------------------------+---------+------------+
+|           Event           | Counter | HWThread 0 |
++---------------------------+---------+------------+
+|      ACTUAL_CPU_CLOCK     |  FIXC1  |    1051554 |
+|       MAX_CPU_CLOCK       |  FIXC2  |     730443 |
+|    RETIRED_INSTRUCTIONS   |   PMC0  |    1125727 |
+|    CPU_CLOCKS_UNHALTED    |   PMC1  |     627567 |
+| RETIRED_SSE_AVX_FLOPS_ALL |   PMC2  |    4210698 |
+|           MERGE           |   PMC3  |          0 |
++---------------------------+---------+------------+
+
++----------------------+------------+
+|        Metric        | HWThread 0 |
++----------------------+------------+
+|  Runtime (RDTSC) [s] |     0.0003 |
+| Runtime unhalted [s] |     0.0004 |
+|      Clock [MHz]     |  3520.2548 |
+|          CPI         |     0.5575 |
+|     DP [MFLOP/s]     | 16506.6312 |
++----------------------+------------+
+
+likwid-perfctr -m -g L2CACHE -C N:0 ./benchmark-blas -N 128
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Reference dgemm.
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=128 
+ Elapsed time is : 0.0004 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L2CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.000258 |
+|     call count    |          1 |
++-------------------+------------+
+
++--------------------------------+---------+------------+
+|              Event             | Counter | HWThread 0 |
++--------------------------------+---------+------------+
+|  REQUESTS_TO_L2_GRP1_ALL_NO_PF |   PMC0  |      48934 |
+|         L2_PF_HIT_IN_L2        |   PMC1  |      34064 |
+|         L2_PF_HIT_IN_L3        |   PMC2  |       2961 |
+|        L2_PF_MISS_IN_L3        |   PMC3  |       2059 |
+| CORE_TO_L2_CACHE_REQUESTS_HITS |   PMC4  |      40135 |
+|      RETIRED_INSTRUCTIONS      |   PMC5  |    1125601 |
++--------------------------------+---------+------------+
+
++----------------------+--------------+
+|        Metric        |  HWThread 0  |
++----------------------+--------------+
+|  Runtime (RDTSC) [s] |       0.0003 |
+| Runtime unhalted [s] | 4.089673e-10 |
+|    L2 request rate   |       0.0782 |
+|     L2 miss rate     |       0.0123 |
+|     L2 miss ratio    |       0.1570 |
+|      L2 accesses     |        88018 |
+|        L2 hits       |        74199 |
+|       L2 misses      |        13819 |
++----------------------+--------------+
+
+likwid-perfctr -m -g L3CACHE -C N:0 ./benchmark-blas -N 128
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Reference dgemm.
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=128 
+ Elapsed time is : 0.0003 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.000253 |
+|     call count    |          1 |
++-------------------+------------+
+
++----------------------+---------+------------+
+|         Event        | Counter | HWThread 0 |
++----------------------+---------+------------+
+| RETIRED_INSTRUCTIONS |   PMC0  |    1125408 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  |     640316 |
+|     L3_CACHE_REQ     |  CPMC0  |      21435 |
+|      L3_MISS_REQ     |  CPMC1  |      12837 |
+|   L3_CACHE_REQ_MISS  |  CPMC2  |       8991 |
++----------------------+---------+------------+
+
++---------------------+------------+
+|        Metric       | HWThread 0 |
++---------------------+------------+
+| Runtime (RDTSC) [s] |     0.0003 |
+|         CPI         |     inf    |
+|   L3 request rate   |     0.0190 |
+|     L3 miss rate    |     0.0080 |
+|    L3 miss ratio    |     0.4195 |
++---------------------+------------+
+
+likwid-perfctr -m -g FLOPS_DP -C N:0 ./benchmark-blas -N 512
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Reference dgemm.
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=512 
+ Elapsed time is : 0.0059 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: FLOPS_DP
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.005844 |
+|     call count    |          1 |
++-------------------+------------+
+
++---------------------------+---------+------------+
+|           Event           | Counter | HWThread 0 |
++---------------------------+---------+------------+
+|      ACTUAL_CPU_CLOCK     |  FIXC1  |   20586800 |
+|       MAX_CPU_CLOCK       |  FIXC2  |   14398450 |
+|    RETIRED_INSTRUCTIONS   |   PMC0  |   63893160 |
+|    CPU_CLOCKS_UNHALTED    |   PMC1  |   19232550 |
+| RETIRED_SSE_AVX_FLOPS_ALL |   PMC2  |  269221900 |
+|           MERGE           |   PMC3  |          0 |
++---------------------------+---------+------------+
+
++----------------------+------------+
+|        Metric        | HWThread 0 |
++----------------------+------------+
+|  Runtime (RDTSC) [s] |     0.0058 |
+| Runtime unhalted [s] |     0.0084 |
+|      Clock [MHz]     |  3496.2413 |
+|          CPI         |     0.3010 |
+|     DP [MFLOP/s]     | 46070.6254 |
++----------------------+------------+
+
+likwid-perfctr -m -g L2CACHE -C N:0 ./benchmark-blas -N 512
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Reference dgemm.
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=512 
+ Elapsed time is : 0.0059 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L2CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.005778 |
+|     call count    |          1 |
++-------------------+------------+
+
++--------------------------------+---------+------------+
+|              Event             | Counter | HWThread 0 |
++--------------------------------+---------+------------+
+|  REQUESTS_TO_L2_GRP1_ALL_NO_PF |   PMC0  |    2493788 |
+|         L2_PF_HIT_IN_L2        |   PMC1  |    2989981 |
+|         L2_PF_HIT_IN_L3        |   PMC2  |     551677 |
+|        L2_PF_MISS_IN_L3        |   PMC3  |      87553 |
+| CORE_TO_L2_CACHE_REQUESTS_HITS |   PMC4  |    2236965 |
+|      RETIRED_INSTRUCTIONS      |   PMC5  |   63893040 |
++--------------------------------+---------+------------+
+
++----------------------+--------------+
+|        Metric        |  HWThread 0  |
++----------------------+--------------+
+|  Runtime (RDTSC) [s] |       0.0058 |
+| Runtime unhalted [s] | 4.089553e-10 |
+|    L2 request rate   |       0.0958 |
+|     L2 miss rate     |       0.0140 |
+|     L2 miss ratio    |       0.1463 |
+|      L2 accesses     |      6122999 |
+|        L2 hits       |      5226946 |
+|       L2 misses      |       896053 |
++----------------------+--------------+
+
+likwid-perfctr -m -g L3CACHE -C N:0 ./benchmark-blas -N 512
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Reference dgemm.
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=512 
+ Elapsed time is : 0.0059 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.005834 |
+|     call count    |          1 |
++-------------------+------------+
+
++----------------------+---------+------------+
+|         Event        | Counter | HWThread 0 |
++----------------------+---------+------------+
+| RETIRED_INSTRUCTIONS |   PMC0  |   63892840 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  |   19302950 |
+|     L3_CACHE_REQ     |  CPMC0  |     919837 |
+|      L3_MISS_REQ     |  CPMC1  |     133121 |
+|   L3_CACHE_REQ_MISS  |  CPMC2  |     126234 |
++----------------------+---------+------------+
+
++---------------------+------------+
+|        Metric       | HWThread 0 |
++---------------------+------------+
+| Runtime (RDTSC) [s] |     0.0058 |
+|         CPI         |     inf    |
+|   L3 request rate   |     0.0144 |
+|     L3 miss rate    |     0.0020 |
+|    L3 miss ratio    |     0.1372 |
++---------------------+------------+
+
+likwid-perfctr -m -g FLOPS_DP -C N:0 ./benchmark-blas -N 2048
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Reference dgemm.
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=2048 
+ Elapsed time is : 0.3357 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: FLOPS_DP
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.335614 |
+|     call count    |          1 |
++-------------------+------------+
+
++---------------------------+---------+-------------+
+|           Event           | Counter |  HWThread 0 |
++---------------------------+---------+-------------+
+|      ACTUAL_CPU_CLOCK     |  FIXC1  |  1170388000 |
+|       MAX_CPU_CLOCK       |  FIXC2  |   820820100 |
+|    RETIRED_INSTRUCTIONS   |   PMC0  |  4041862000 |
+|    CPU_CLOCKS_UNHALTED    |   PMC1  |  1166141000 |
+| RETIRED_SSE_AVX_FLOPS_ALL |   PMC2  | 17226010000 |
+|           MERGE           |   PMC3  |           0 |
++---------------------------+---------+-------------+
+
++----------------------+------------+
+|        Metric        | HWThread 0 |
++----------------------+------------+
+|  Runtime (RDTSC) [s] |     0.3356 |
+| Runtime unhalted [s] |     0.4786 |
+|      Clock [MHz]     |  3486.6343 |
+|          CPI         |     0.2885 |
+|     DP [MFLOP/s]     | 51326.8976 |
++----------------------+------------+
+
+likwid-perfctr -m -g L2CACHE -C N:0 ./benchmark-blas -N 2048
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Reference dgemm.
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=2048 
+ Elapsed time is : 0.3414 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L2CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.341199 |
+|     call count    |          1 |
++-------------------+------------+
+
++--------------------------------+---------+------------+
+|              Event             | Counter | HWThread 0 |
++--------------------------------+---------+------------+
+|  REQUESTS_TO_L2_GRP1_ALL_NO_PF |   PMC0  |  149573100 |
+|         L2_PF_HIT_IN_L2        |   PMC1  |  166934800 |
+|         L2_PF_HIT_IN_L3        |   PMC2  |   32920800 |
+|        L2_PF_MISS_IN_L3        |   PMC3  |    6096864 |
+| CORE_TO_L2_CACHE_REQUESTS_HITS |   PMC4  |  133488000 |
+|      RETIRED_INSTRUCTIONS      |   PMC5  | 4041862000 |
++--------------------------------+---------+------------+
+
++----------------------+--------------+
+|        Metric        |  HWThread 0  |
++----------------------+--------------+
+|  Runtime (RDTSC) [s] |       0.3412 |
+| Runtime unhalted [s] | 4.089650e-10 |
+|    L2 request rate   |       0.0880 |
+|     L2 miss rate     |       0.0136 |
+|     L2 miss ratio    |       0.1550 |
+|      L2 accesses     |    355525564 |
+|        L2 hits       |    300422800 |
+|       L2 misses      |     55102764 |
++----------------------+--------------+
+
+likwid-perfctr -m -g L3CACHE -C N:0 ./benchmark-blas -N 2048
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Reference dgemm.
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=2048 
+ Elapsed time is : 0.3345 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.334365 |
+|     call count    |          1 |
++-------------------+------------+
+
++----------------------+---------+------------+
+|         Event        | Counter | HWThread 0 |
++----------------------+---------+------------+
+| RETIRED_INSTRUCTIONS |   PMC0  | 4041861000 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  | 1158723000 |
+|     L3_CACHE_REQ     |  CPMC0  |   51274950 |
+|      L3_MISS_REQ     |  CPMC1  |    6770096 |
+|   L3_CACHE_REQ_MISS  |  CPMC2  |    6741077 |
++----------------------+---------+------------+
+
++---------------------+------------+
+|        Metric       | HWThread 0 |
++---------------------+------------+
+| Runtime (RDTSC) [s] |     0.3344 |
+|         CPI         |     inf    |
+|   L3 request rate   |     0.0127 |
+|     L3 miss rate    |     0.0017 |
+|    L3 miss ratio    |     0.1315 |
++---------------------+------------+
