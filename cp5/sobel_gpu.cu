@@ -57,16 +57,33 @@ inline void gpuAssert(cudaError_t code, const char *file, int line, bool abort=t
 //
 __device__ float
 sobel_filtered_pixel(float *s, int i, int j , int ncols, int nrows, float *gx, float *gy)
-{
+//{
 
-   float t=0.0;
+   //float t=0.0;
 
    // ADD CODE HERE:  add your code here for computing the sobel stencil computation at location (i,j)
    // of input s, returning a float
+{   
+   float Gx = 0.0, Gy = 0.0;
 
-   return t;
+    // Apply the Sobel filter
+   for (int di = -1; di <= 1; ++di)
+   {
+      for (int dj = -1; dj <= 1; ++dj)
+      {
+         int ni = i + di;
+         int nj = j + dj;
+         if (ni >= 0 && ni < nrows && nj >= 0 && nj < ncols)
+         {
+            Gx += s[ni * ncols + nj] * gx[(di + 1) * 3 + (dj + 1)];
+            Gy += s[ni * ncols + nj] * gy[(di + 1) * 3 + (dj + 1)];
+         }
+      }
+   }
+
+   return sqrt(Gx * Gx + Gy * Gy);
+
 }
-
 //
 // this function is the kernel that runs on the device
 // 
@@ -89,12 +106,24 @@ sobel_kernel_gpu(float *s,  // source image pixels
       int nrows,
       int ncols,
       float *gx, float *gy) // gx and gy are stencil weights for the sobel filter
-{
    // ADD CODE HERE: insert your code here that iterates over every (i,j) of input,  makes a call
    // to sobel_filtered_pixel, and assigns the resulting value at location (i,j) in the output.
 
    // because this is CUDA, you need to use CUDA built-in variables to compute an index and stride
    // your processing motif will be very similar here to that we used for vector add in Lab #2
+{
+    int idx = blockIdx.x * blockDim.x + threadIdx.x;
+    int stride = blockDim.x * gridDim.x;
+
+    for (int index = idx; index < n; index += stride)
+    {
+        int i = index / ncols;
+        int j = index % ncols;
+        if (i < nrows && j < ncols)
+        {
+            d[index] = sobel_filtered_pixel(s, i, j, ncols, nrows, gx, gy);
+        }
+    }
 }
 
 int
@@ -157,7 +186,14 @@ main (int ac, char *av[])
    int nBlocks=1, nThreadsPerBlock=256;
 
    // ADD CODE HERE: insert your code here to set a different number of thread blocks or # of threads per block
-
+   if (ac > 1)
+    {
+        nBlocks = atoi(av[1]);
+    }
+    if (ac > 2)
+    {
+        nThreadsPerBlock = atoi(av[2]);
+    }
 
 
    printf(" GPU configuration: %d blocks, %d threads per block \n", nBlocks, nThreadsPerBlock);
