@@ -1,0 +1,48 @@
+satvik@nid004221:~/CSC-746/cp5/build> ./sobel_cpu
+ Read data from the file ../data/zebra-gray-int8-4x
+ Elapsed time is : 0.0534572
+ Wrote the output file ../data/processed-raw-int8-4x-cpu.dat
+satvik@nid004221:~/CSC-746/cp5/build> ./sobel_cpu 1
+ Read data from the file ../data/zebra-gray-int8-4x
+ Elapsed time is : 0.0523549
+ Wrote the output file ../data/processed-raw-int8-4x-cpu.dat
+satvik@nid004221:~/CSC-746/cp5/build> ./sobel_cpu 2
+ Read data from the file ../data/zebra-gray-int8-4x
+ Elapsed time is : 0.0753409
+ Wrote the output file ../data/processed-raw-int8-4x-cpu.dat
+satvik@nid004221:~/CSC-746/cp5/build> ./sobel_cpu 4
+ Read data from the file ../data/zebra-gray-int8-4x
+ Elapsed time is : 0.0368917
+ Wrote the output file ../data/processed-raw-int8-4x-cpu.dat
+satvik@nid004221:~/CSC-746/cp5/build> ./sobel_cpu 8
+ Read data from the file ../data/zebra-gray-int8-4x
+ Elapsed time is : 0.0700315
+ Wrote the output file ../data/processed-raw-int8-4x-cpu.dat
+satvik@nid004221:~/CSC-746/cp5/build> ./sobel_cpu 16
+ Read data from the file ../data/zebra-gray-int8-4x
+ Elapsed time is : 0.04772
+ Wrote the output file ../data/processed-raw-int8-4x-cpu.dat
+satvik@nid004221:~/CSC-746/cp5/build>
+
+
+
+satvik@nid004174:/pscratch/sd/s/satvik/CSC-746/cp5/build> ./sobel_cpu 1
+ Read data from the file ../data/zebra-gray-int8-4x
+ Elapsed time is : 0.0691494
+ Wrote the output file ../data/processed-raw-int8-4x-cpu.dat
+satvik@nid004174:/pscratch/sd/s/satvik/CSC-746/cp5/build> ./sobel_cpu 2
+ Read data from the file ../data/zebra-gray-int8-4x
+ Elapsed time is : 0.0687984
+ Wrote the output file ../data/processed-raw-int8-4x-cpu.dat
+satvik@nid004174:/pscratch/sd/s/satvik/CSC-746/cp5/build> ./sobel_cpu 4
+ Read data from the file ../data/zebra-gray-int8-4x
+ Elapsed time is : 0.0472079
+ Wrote the output file ../data/processed-raw-int8-4x-cpu.dat
+satvik@nid004174:/pscratch/sd/s/satvik/CSC-746/cp5/build> ./sobel_cpu 8
+ Read data from the file ../data/zebra-gray-int8-4x
+ Elapsed time is : 0.0394354
+ Wrote the output file ../data/processed-raw-int8-4x-cpu.dat
+satvik@nid004174:/pscratch/sd/s/satvik/CSC-746/cp5/build> ./sobel_cpu 16
+ Read data from the file ../data/zebra-gray-int8-4x
+ Elapsed time is : 0.0517995
+ Wrote the output file ../data/processed-raw-int8-4x-cpu.dat

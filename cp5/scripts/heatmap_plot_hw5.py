@@ -17,18 +17,19 @@ Assumptions: Developed and Tested with Python 3.8.8 on MacOS 11.6
 '''
 
 import numpy as np
-import matplotlib
 import matplotlib.pyplot as plt
 
 threads_per_block = ['32', '64', '128', '256', '512', '1024'] # y axis, 6 of them
 thread_blocks = ["1", "4", "16", "64", "256", "1024", "4096"] # x axis, 7 of them
 
-runtime = np.array([[0.8, 2.4, 2.5, 3.9, 0.0, 4.0, 0.0],
-                    [2.4, 0.0, 4.0, 1.0, 2.7, 0.0, 0.0],
-                    [1.1, 2.4, 0.8, 4.3, 1.9, 4.4, 0.0],
-                    [0.6, 0.0, 0.3, 0.0, 3.1, 0.0, 0.0],
-                    [0.7, 1.7, 0.6, 2.6, 2.2, 6.2, 0.0],
-                    [1.3, 1.2, 0.0, 0.0, 0.0, 3.2, 5.1]])
+runtime = np.array([
+    [1.56, 1.56, 1.56, 1.56, 3.70, 14.77, 32.74],
+    [3.12, 3.12, 3.12, 3.12, 7.41, 29.07, 70.32],
+    [6.25, 6.25, 6.25, 6.25, 14.79, 55.03, 85.00],
+    [12.50, 12.50, 12.50, 12.49, 29.20, 71.16, 91.48],
+    [24.98, 24.99, 24.80, 24.79, 55.99, 84.87, 92.66],
+    [49.93, 48.83, 48.69, 48.57, 84.27, 91.05, 91.41]
+])
 
 
 fig, ax = plt.subplots()
@@ -51,7 +52,7 @@ for i in range(len(threads_per_block)): # y axis
         text = ax.text(j, i, runtime[i, j],
                        ha="center", va="center", color="k")
 
-ax.set_title("Runtime on <what platform> at Varying Block Size and Number of Blocks")
+ax.set_title("Achieved Occupancy on CUDA-GPU at Varying Block Size and Number of Blocks")
 ax.set_ylabel('Threads per block')
 ax.set_xlabel('Block Sizes')
 fig.colorbar(im, ax=ax)

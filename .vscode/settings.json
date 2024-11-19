@@ -52,5 +52,6 @@
         "algorithm": "cpp",
         "queue": "cpp",
         "stack": "cpp"
-    }
+    },
+    "cmake.ignoreCMakeListsMissing": true
 }
