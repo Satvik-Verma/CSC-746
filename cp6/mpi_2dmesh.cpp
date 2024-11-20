@@ -128,32 +128,37 @@ computeMeshDecomposition(AppState *as, vector < vector < Tile2D > > *tileArray) 
    int ntiles;
 
    if (as->decomp == ROW_DECOMP) {
-      // in a row decomposition, each tile width is the same as the mesh width
-      // the mesh is decomposed along height
-      xtiles = 1;
-
-      //  set up the y coords of the tile boundaries
+      int haloSize = 1; // Halo size (e.g., 1 pixel)
       ytiles = as->nranks;
-      int ylocs[ytiles+1];
-      int ysize = as->global_mesh_size[1] / as->nranks; // size of each tile in y
+      int ylocs[ytiles + 1];
+      int ysize = as->global_mesh_size[1] / as->nranks;
 
-      int yval=0;
-      for (int i=0; i<ytiles; i++, yval+=ysize) {
+      int yval = 0;
+      for (int i = 0; i < ytiles; i++, yval += ysize) {
          ylocs[i] = yval;
       }
       ylocs[ytiles] = as->global_mesh_size[1];
 
-      // then, create tiles along the y axis
-      for (int i=0; i<ytiles; i++)
-      {
-         vector < Tile2D > tiles;
-         int width =  as->global_mesh_size[0];
-         int height = ylocs[i+1]-ylocs[i];
-         Tile2D t = Tile2D(0, ylocs[i], width, height, i);
-         tiles.push_back(t);
-         tileArray->push_back(tiles);
-      }
+   for (int i = 0; i < ytiles; i++) {
+      vector<Tile2D> tiles;
+      int width = as->global_mesh_size[0];
+      int height = ylocs[i + 1] - ylocs[i];
+
+      Tile2D t(0, ylocs[i], width, height, i);
+
+        // Assign halos
+      t.ghost_ymin = (i == 0) ? 0 : haloSize;          // Top halo
+      t.ghost_ymax = (i == ytiles - 1) ? 0 : haloSize; // Bottom halo
+      t.ghost_xmin = 0;  // No left/right halos for row decomposition
+      t.ghost_xmax = 0;
+
+        // Allocate buffers for the tile (including halos)
+      t.allocateBuffers();
+
+      tiles.push_back(t);
+      tileArray->push_back(tiles);
    }
+}
    else if (as->decomp == COLUMN_DECOMP) {
       // in a columne decomposition, each tile height is the same as the mesh height
       // the mesh is decomposed along width
@@ -386,8 +391,6 @@ sendStridedBuffer(float *srcBuf,
    // sendWidth by sendHeight values, and the subregion is offset from the origin of
    // srcBuf by the values specificed by srcOffsetColumn, srcOffsetRow.
    //
-    int msgTag = 0;
-
     // Calculate the size of the subregion to send
     int subregionSize = sendWidth * sendHeight;
 
@@ -513,8 +516,7 @@ sobelAllTiles(int myrank, vector < vector < Tile2D > > & tileArray) {
 #endif
          // ADD YOUR CODE HERE
          // to call your sobel filtering code on each tile
-         do_sobel_filtering(t->inputBuffer.data(), t->outputBuffer.data(), t->ncols, t->nrows);
-
+         do_sobel_filtering(t->inputBuffer.data(), t->outputBuffer.data(), t->width, t->height);
          }
       }
    }
