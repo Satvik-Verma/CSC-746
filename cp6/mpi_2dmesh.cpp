@@ -481,16 +481,11 @@ float sobel_filtered_pixel(float *s, int i, int j, int ncols, int nrows, float *
     return sqrt(Gx * Gx + Gy * Gy);
 }
 
-void do_sobel_filtering(float *in, float *out, int ncols, int nrows)
-{
-    float Gx[] = {1.0, 0.0, -1.0, 2.0, 0.0, -2.0, 1.0, 0.0, -1.0};
-    float Gy[] = {1.0, 2.0, 1.0, 0.0, 0.0, 0.0, -1.0, -2.0, -1.0};
-
-    for (int i = 0; i < nrows; ++i)
-    {
-        for (int j = 0; j < ncols; ++j)
-        {
-            out[i * ncols + j] = sobel_filtered_pixel(in, i, j, ncols, nrows, Gx, Gy);
+void do_sobel_filtering(float* in, float* out, int ncols, int nrows, int halo_xmin, int halo_ymin) {
+    for (int i = halo_ymin; i < nrows - halo_ymin; ++i) {
+        for (int j = halo_xmin; j < ncols - halo_xmin; ++j) {
+            out[(i - halo_ymin) * (ncols - 2 * halo_xmin) + (j - halo_xmin)] =
+                sobel_filtered_pixel(in, i, j, ncols, nrows, Gx, Gy);
         }
     }
 }
@@ -522,123 +517,136 @@ sobelAllTiles(int myrank, vector < vector < Tile2D > > & tileArray) {
    }
 }
 
-void
-scatterAllTiles(int myrank, vector < vector < Tile2D > > & tileArray, float *s, int global_width, int global_height)
-{
-
+void scatterAllTiles(int myrank, vector<vector<Tile2D>>& tileArray, float* s, int global_width, int global_height) {
 #if DEBUG_TRACE
-   printf(" Rank %d is entering scatterAllTiles \n", myrank);
-#endif
-   for (int row=0;row<tileArray.size(); row++)
-   {
-      for (int col=0; col<tileArray[row].size(); col++)
-      {  
-         Tile2D *t = &(tileArray[row][col]);
-
-         if (myrank != 0 && t->tileRank == myrank)
-         {
-            int fromRank=0;
-
-            // receive a tile's buffer 
-            t->inputBuffer.resize(t->width*t->height);
-            t->outputBuffer.resize(t->width*t->height);
-#if DEBUG_TRACE
-            printf("scatterAllTiles() receive side:: t->tileRank=%d, myrank=%d, t->inputBuffer->size()=%d, t->outputBuffersize()=%d \n", t->tileRank, myrank, t->inputBuffer.size(), t->outputBuffer.size());
+    printf(" Rank %d is entering scatterAllTiles \n", myrank);
 #endif
 
-            recvStridedBuffer(t->inputBuffer.data(), t->width, t->height,
-                  0, 0,  // offset into the tile buffer: we want the whole thing
-                  t->width, t->height, // how much data coming from this tile
-                  fromRank, myrank); 
-         }
-         else if (myrank == 0)
-         {
-            if (t->tileRank != 0) {
-#if DEBUG_TRACE
-               printf("scatterAllTiles() send side: t->tileRank=%d, myrank=%d, t->inputBuffer->size()=%d \n", t->tileRank, myrank, t->inputBuffer.size());
-#endif
+    for (int row = 0; row < tileArray.size(); row++) {
+        for (int col = 0; col < tileArray[row].size(); col++) {
+            Tile2D* t = &(tileArray[row][col]);
 
-               sendStridedBuffer(s, // ptr to the buffer to send
-                     global_width, global_height,  // size of the src buffer
-                     t->xloc, t->yloc, // offset into the send buffer
-                     t->width, t->height,  // size of the buffer to send,
-                     myrank, t->tileRank);
+            // Resize input buffer to include halo regions
+            int halo_width = t->width + t->ghost_xmin + t->ghost_xmax;
+            int halo_height = t->height + t->ghost_ymin + t->ghost_ymax;
+
+            t->inputBuffer.resize(halo_width * halo_height);
+            t->outputBuffer.resize(t->width * t->height); // Output excludes halo
+
+            if (myrank != 0 && t->tileRank == myrank) {
+                // Receive core data from rank 0
+                recvStridedBuffer(t->inputBuffer.data() + t->ghost_ymin * halo_width + t->ghost_xmin,
+                                  halo_width, halo_height,
+                                  t->ghost_xmin, t->ghost_ymin,
+                                  t->width, t->height,
+                                  0, myrank);
+
+                // Exchange halo cells with neighbors
+                MPI_Status status;
+                // Top Halo
+                if (t->ghost_ymin > 0 && t->yloc > 0) {
+                    MPI_Sendrecv(t->inputBuffer.data() + t->ghost_ymin * halo_width + t->ghost_xmin, t->width, MPI_FLOAT,
+                                 t->tileRank - 1, 0,  // Send top row to above rank
+                                 t->inputBuffer.data(), t->width, MPI_FLOAT,
+                                 t->tileRank - 1, 0,  // Receive bottom halo from above rank
+                                 MPI_COMM_WORLD, &status);
+                }
+
+                // Bottom Halo
+                if (t->ghost_ymax > 0 && (t->yloc + t->height) < global_height) {
+                    MPI_Sendrecv(t->inputBuffer.data() + (t->ghost_ymin + t->height - 1) * halo_width + t->ghost_xmin,
+                                 t->width, MPI_FLOAT, t->tileRank + 1, 1,  // Send bottom row to below rank
+                                 t->inputBuffer.data() + (t->ghost_ymin + t->height) * halo_width + t->ghost_xmin,
+                                 t->width, MPI_FLOAT, t->tileRank + 1, 1,  // Receive top halo from below rank
+                                 MPI_COMM_WORLD, &status);
+                }
+
+                // Left Halo
+                if (t->ghost_xmin > 0 && t->xloc > 0) {
+                    for (int i = 0; i < t->height; i++) {
+                        MPI_Sendrecv(t->inputBuffer.data() + (i + t->ghost_ymin) * halo_width + t->ghost_xmin, 1, MPI_FLOAT,
+                                     t->tileRank - 1, 2,  // Send left column to left rank
+                                     t->inputBuffer.data() + (i + t->ghost_ymin) * halo_width, 1, MPI_FLOAT,
+                                     t->tileRank - 1, 2,  // Receive right halo from left rank
+                                     MPI_COMM_WORLD, &status);
+                    }
+                }
+
+                // Right Halo
+                if (t->ghost_xmax > 0 && (t->xloc + t->width) < global_width) {
+                    for (int i = 0; i < t->height; i++) {
+                        MPI_Sendrecv(t->inputBuffer.data() + (i + t->ghost_ymin) * halo_width + (t->ghost_xmin + t->width - 1),
+                                     1, MPI_FLOAT, t->tileRank + 1, 3,  // Send right column to right rank
+                                     t->inputBuffer.data() + (i + t->ghost_ymin) * halo_width + (t->ghost_xmin + t->width),
+                                     1, MPI_FLOAT, t->tileRank + 1, 3,  // Receive left halo from right rank
+                                     MPI_COMM_WORLD, &status);
+                    }
+                }
+            } else if (myrank == 0) {
+                if (t->tileRank != 0) {
+                    // Send core data to other ranks
+                    sendStridedBuffer(s, global_width, global_height,
+                                      t->xloc, t->yloc, t->width, t->height,
+                                      myrank, t->tileRank);
+                } else {
+                    // Copy core data directly into the input buffer
+                    for (int j = 0; j < t->height; j++) {
+                        memcpy(t->inputBuffer.data() + (t->ghost_ymin + j) * halo_width + t->ghost_xmin,
+                               s + (t->yloc + j) * global_width + t->xloc,
+                               t->width * sizeof(float));
+                    }
+                }
             }
-            else // rather then have rank 0 send to rank 0, just do a strided copy into a tile's input buffer
-            {
-               t->inputBuffer.resize(t->width*t->height);
-               t->outputBuffer.resize(t->width*t->height);
-
-               off_t s_offset=0, d_offset=0;
-               float *d = t->inputBuffer.data();
-
-               for (int j=0;j<t->height;j++, s_offset+=global_width, d_offset+=t->width)
-               {
-                  memcpy((void *)(d+d_offset), (void *)(s+s_offset), sizeof(float)*t->width);
-               }
-            }
-         }
-      }
-   } // loop over 2D array of tiles
+        }
+    }
 
 #if DEBUG_TRACE
-   MPI_Barrier(MPI_COMM_WORLD);
-   if (myrank == 1){
-      printf("\n\n ----- rank=%d, inside scatterAllTiles debug printing of the tile array \n", myrank);
-      printTileArray(tileArray);
-   }
-   MPI_Barrier(MPI_COMM_WORLD);
+    MPI_Barrier(MPI_COMM_WORLD);
+    if (myrank == 1) {
+        printf("\n\n ----- rank=%d, inside scatterAllTiles debug printing of the tile array \n", myrank);
+        printTileArray(tileArray);
+    }
+    MPI_Barrier(MPI_COMM_WORLD);
 #endif
-      
 }
 
-void
-gatherAllTiles(int myrank, vector < vector < Tile2D > > & tileArray, float *d, int global_width, int global_height)
-{
-
-   for (int row=0;row<tileArray.size(); row++)
-   {
-      for (int col=0; col<tileArray[row].size(); col++)
-      {  
-         Tile2D *t = &(tileArray[row][col]);
+void gatherAllTiles(int myrank, vector<vector<Tile2D>>& tileArray, float* d, int global_width, int global_height) {
+    for (int row = 0; row < tileArray.size(); row++) {
+        for (int col = 0; col < tileArray[row].size(); col++) {
+            Tile2D* t = &(tileArray[row][col]);
 
 #if DEBUG_TRACE
-         printf("gatherAllTiles(): t->tileRank=%d, myrank=%d, t->outputBuffer->size()=%d \n", t->tileRank, myrank, t->outputBuffer.size());
+            printf("gatherAllTiles(): t->tileRank=%d, myrank=%d, t->outputBuffer->size()=%d \n",
+                   t->tileRank, myrank, t->outputBuffer.size());
 #endif
 
-         if (myrank != 0 && t->tileRank == myrank)
-         {
-            // send the tile's output buffer to rank 0
-            sendStridedBuffer(t->outputBuffer.data(), // ptr to the buffer to send
-               t->width, t->height,  // size of the src buffer
-               0, 0, // offset into the send buffer
-               t->width, t->height,  // size of the buffer to send,
-               t->tileRank, 0);   // from rank, to rank
-         }
-         else if (myrank == 0)
-         {
-            if (t->tileRank != 0) {
-               // receive a tile's buffer and copy back into the output buffer d
-               recvStridedBuffer(d, global_width, global_height,
-                     t->xloc, t->yloc,  // offset of this tile
-                     t->width, t->height, // how much data coming from this tile
-                     t->tileRank, myrank); 
-            }
-            else // copy from a tile owned by rank 0 back into the main buffer
-            {
-               float *s = t->outputBuffer.data();
-               off_t s_offset=0, d_offset=0;
-               d_offset = t->yloc * global_width + t->xloc;
+            if (myrank != 0 && t->tileRank == myrank) {
+                // Send only the core region (excluding halos) to rank 0
+                sendStridedBuffer(t->outputBuffer.data(),  // ptr to the buffer to send
+                                  t->width, t->height,    // size of the core region
+                                  0, 0,                   // offset into the send buffer
+                                  t->width, t->height,    // size of the buffer to send
+                                  t->tileRank, 0);        // from rank, to rank
+            } else if (myrank == 0) {
+                if (t->tileRank != 0) {
+                    // Receive the core region of a tile and copy it back into the output buffer `d`
+                    recvStridedBuffer(d, global_width, global_height,
+                                      t->xloc, t->yloc,  // offset of this tile in the global buffer
+                                      t->width, t->height,  // size of the core region to receive
+                                      t->tileRank, myrank);
+                } else {
+                    // Copy the core region from a tile owned by rank 0 back into the main buffer
+                    float* s = t->outputBuffer.data();
+                    off_t s_offset = 0, d_offset = 0;
+                    d_offset = t->yloc * global_width + t->xloc;
 
-               for (int j=0;j<t->height;j++, s_offset+=t->width, d_offset+=global_width)
-               {
-                  memcpy((void *)(d+d_offset), (void *)(s+s_offset), sizeof(float)*t->width);
-               }
+                    for (int j = 0; j < t->height; j++, s_offset += t->width, d_offset += global_width) {
+                        memcpy((void*)(d + d_offset), (void*)(s + s_offset), sizeof(float) * t->width);
+                    }
+                }
             }
-         }
-
-      }
-   } // loop over 2D array of tiles
+        }
+    } // loop over 2D array of tiles
 }
 
 int main(int ac, char *av[]) {
