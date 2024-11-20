@@ -72,33 +72,42 @@ class AppState
 
 };  // class AppState
 
-class Tile2D {
-   public:
-   int xloc, yloc; // x,y location in global grid wrt (0,0) in global grid
-   int width, height; // dimensions of the tile base grid
-   int ghost_xmin, ghost_xmax, ghost_ymin, ghost_ymax; // halo sizes
-   int tileRank;      // rank ID owner of this tile
-   vector<float> inputBuffer; // Input data (includes halo)
-   vector<float> outputBuffer; // Output data (excludes halo)
+class Tile2D
+{
+public:
+    int xloc, yloc;       // Location of the tile in the global grid (top-left corner)
+    int width, height;    // Dimensions of the tile's base grid
+    int ghost_xmin, ghost_xmax, ghost_ymin, ghost_ymax; // Sizes of halo regions on each side
 
-   Tile2D(int tx, int ty, int xsize, int ysize, int rank)
-   {
-      xloc = tx;  yloc = ty;
-      width = xsize;  height = ysize;
-      tileRank = rank;
-      ghost_xmin = ghost_xmax = ghost_ymin = ghost_ymax = 1; // Default 1-pixel halo
+    int tileRank;         // Rank ID owner of this tile
 
-      // Resize buffers to include halos
-      inputBuffer.resize((width + ghost_xmin + ghost_xmax) * (height + ghost_ymin + ghost_ymax));
-      outputBuffer.resize(width * height); // Output excludes halo
-   }
+    vector<float> inputBuffer;  // Includes halo regions
+    vector<float> outputBuffer; // Excludes halo regions
 
-   void print(int row, int col) {
-      printf("Tile [%d, %d]: xloc=%d, yloc=%d, width=%d, height=%d, rank=%d, "
-             "ghost_xmin=%d, ghost_xmax=%d, ghost_ymin=%d, ghost_ymax=%d\n",
-             row, col, xloc, yloc, width, height, tileRank,
-             ghost_xmin, ghost_xmax, ghost_ymin, ghost_ymax);
-   }
+    // Constructor to initialize tile properties
+    Tile2D(int tx, int ty, int xsize, int ysize, int rank)
+        : xloc(tx), yloc(ty), width(xsize), height(ysize), tileRank(rank)
+    {
+        ghost_xmin = ghost_xmax = ghost_ymin = ghost_ymax = 0;
+        inputBuffer.resize(0);  // Start with empty buffers
+        outputBuffer.resize(0);
+    }
+
+    // Function to compute buffer sizes, including halos
+    void allocateBuffers() {
+        int paddedWidth = width + ghost_xmin + ghost_xmax;
+        int paddedHeight = height + ghost_ymin + ghost_ymax;
+        inputBuffer.resize(paddedWidth * paddedHeight);  // With halos
+        outputBuffer.resize(width * height);            // Without halos
+    }
+
+    // Print the tile's metadata and buffers for debugging
+    void print(int row, int col) {
+        printf(" Tile at [%d, %d], \tx/yloc: (%d, %d),\tbase grid size [%d,%d],\trank=%d,\tgxmin/gxmax/gymin/gymax=[%d,%d,%d,%d],\tinputBuffer.size()=%d, outputBuffer.size()=%d \n",
+               row, col, xloc, yloc, width, height, tileRank,
+               ghost_xmin, ghost_xmax, ghost_ymin, ghost_ymax,
+               inputBuffer.size(), outputBuffer.size());
+    }
 }; // class Tile2D
 
 // eof
